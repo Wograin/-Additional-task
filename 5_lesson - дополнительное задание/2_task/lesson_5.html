@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js_lesson_5.js"></script>
+</head>
+
+<body>
+    <script>
+        let divOne = document.createElement("div");
+        divOne.innerHTML = "<p>" + date(dayOne) + "</p>";
+        document.body.appendChild(divOne);
+
+        let divTwo = document.createElement("div");
+        divTwo.innerHTML = "<p>" + newDate(dayTwo) + "</p>";
+        document.body.appendChild(divTwo);
+
+        let divThree = document.createElement("div");
+        divThree.innerHTML = "<p>" + formatter.format(toDay) + "</p>";
+        document.body.appendChild(divThree);
+
+        let divFour = document.createElement("div"),
+            inputOne = document.createElement("input");
+        inputOne.type = "text";
+        inputOne.placeholder = "Укажие дату:'YYYY-MM-DD'";
+        document.body.appendChild(divFour);
+        divFour.appendChild(inputOne);
+
+        let inputTwo = document.createElement("input");
+        inputTwo.type = "text";
+        inputTwo.placeholder = "Укажие дату:'YYYY-MM-DD'";
+
+        divFour.appendChild(inputTwo);
+        let inputThree = document.createElement("input");
+        inputThree.type = "text";
+        inputThree.disabled = "true";
+        divFour.appendChild(inputThree);
+
+        let btn = document.createElement("button");
+        btn.innerHTML = "Рассчитать";
+        divFour.appendChild(btn);
+        let myBtn = document.getElementsByTagName("button"),
+            approve = myBtn[0];
+
+        let inputAll = document.getElementsByTagName("input"),
+            input1 = inputAll[0],
+            input2 = inputAll[1],
+            input3 = inputAll[2];
+
+        approve.addEventListener("click", function () {
+            let firstDate = input1.value,
+                secondDate = input2.value;
+
+            function dateDifference(dateOne, dateTwo) {
+                let timeDiff = (new Date(dateOne) - new Date(dateTwo));
+
+                let result = timeDiff / (1000 * 60 * 60 * 24);
+
+                return result;
+            }
+            input3.value = dateDifference(firstDate, secondDate);
+        });
+    </script>
+</body>
+
+</html>
