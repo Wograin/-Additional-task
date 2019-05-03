@@ -1,5 +1,5 @@
 let bat = document.querySelector("#batman"),
-    btn = document.querySelector(".btn"),
+    btn = document.querySelector("#btn"),
     step = 0,
     position = 0;
    
