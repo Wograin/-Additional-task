@@ -7,7 +7,7 @@ function fly() {
     step += 5;
 
     let id = requestAnimationFrame(fly); 
-    if(position == 300) {
+    if(step == 290) {
         cancelAnimationFrame(id);
     } else {
         position++;
